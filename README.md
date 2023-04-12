@@ -1,4 +1,4 @@
-# gcprinter
+# Gcprinter
 
 This plugin allows the Flutter app to print tickets on a goodcom pos printer using a few simple apis.
 This plugin support all the goodcom android pos printer.
@@ -22,18 +22,42 @@ import 'package:gcprinter/gcprinter.dart';
 
 ## Function list
 
-void drawText(String strLeft,int fontLeft,String strMid,int fontMid,String strRight,int fontRight);
-printText();
-void printUriImage(String uri,int align,bool isAutoFeed);
-void printImage(Uint8List img ,int align,bool isAutoFeed);
+```
+  void drawText(String strLeft,int fontLeft,String strMid,int fontMid,String strRight,int fontRight);
+  void drawBarcode(String str,int align)
+  void printText();
+  void printImageFile(String filePath,int align,bool isAutoFeed);
+  void printImage(Uint8List img ,int align,bool isAutoFeed);
+//Easy to use API
+  void drawNewLine();
+  void drawOneLine([int? fontSize]);
+  void drawCustom(String str,int fontSize,int align);
+  void drawLeftRight(String left,String right,int fontSize);
+  void drawImage(String path);
+```
 
 ## Example
 
 ```
-    final _gcprinterPlugin = Gcprinter();
+    Uint8List bytes = await _getAssetImage('assets/images/logo.png');
+    Gcprinter.printImage(bytes, Gcprinter.alignCenter, false);
+    Gcprinter.drawText("1 x", Gcprinter.fontSmallBold, "test", Gcprinter.fontSmallBold, "65.00", Gcprinter.fontSmallBold);
+    Gcprinter.drawText("option1", Gcprinter.fontDefault, "", Gcprinter.fontDefault, "60.00", Gcprinter.fontDefault);
+    Gcprinter.drawText("option2", Gcprinter.fontDefault, "", Gcprinter.fontDefault, "5.00", Gcprinter.fontDefault);
+    Gcprinter.drawBarcode("test123", Gcprinter.alignCenter,Gcprinter.barcodeQrCode);
+    Gcprinter.drawText("",0,"test123",Gcprinter.fontDefault,"",0);
+    Gcprinter.printText(true);
+```
 
-    _gcprinterPlugin.drawText("1 x", 1, "product name", 2, "65.00", 1);
-    _gcprinterPlugin.drawText("option1", 1, "", 0, "60.00", 1);
-    _gcprinterPlugin.drawText("option2", 1, "", 0, "5.00", 1);
-    _gcprinterPlugin.printText();
+## Different implementations of the same example
+
+```
+    Uint8List bytes = await _getAssetImage('assets/images/logo.png');
+    Gcprinter.printImage(bytes, Gcprinter.alignCenter, false);
+    Gcprinter.drawText("1 x", Gcprinter.fontSmallBold, "test", Gcprinter.fontSmallBold, "65.00", Gcprinter.fontSmallBold);
+    Gcprinter.drawLeftRight("option1", Gcprinter.fontDefault, "60.00", Gcprinter.fontDefault);
+    Gcprinter.drawLeftRight("option2", Gcprinter.fontDefault, "5.00", Gcprinter.fontDefault);
+    Gcprinter.drawBarcode("test123", Gcprinter.alignCenter,Gcprinter.barcodeQrCode);
+    Gcprinter.drawCustom("test123",Gcprinter.fontDefault,Gcprinter.alignCenter);
+    Gcprinter.printText(true);
 ```
