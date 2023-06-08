@@ -29,3 +29,9 @@ first release
  ## 1.0.3
 
  To avoid prompting empty security issues when using higher versions of Flutter, the version supports updating to 2.15.1
+
+ ## 1.0.4
+ 1. Add a new parameter to the drawBarcode: height
+    You can also continue to use the API without height
+ 2. Add new api:drawQrCode
+ 3. Modification issue: The barcode type set may not work

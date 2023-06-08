@@ -34,6 +34,7 @@ import 'package:gcprinter/gcprinter.dart';
   void drawCustom(String str,int fontSize,int align);
   void drawLeftRight(String left,String right,int fontSize);
   void drawImage(String path);
+  void drawQrCode(String str, int align, [int? height]);
 ```
 
 ## Example
@@ -57,7 +58,7 @@ import 'package:gcprinter/gcprinter.dart';
     Gcprinter.drawText("1 x", Gcprinter.fontSmallBold, "test", Gcprinter.fontSmallBold, "65.00", Gcprinter.fontSmallBold);
     Gcprinter.drawLeftRight("option1", Gcprinter.fontDefault, "60.00", Gcprinter.fontDefault);
     Gcprinter.drawLeftRight("option2", Gcprinter.fontDefault, "5.00", Gcprinter.fontDefault);
-    Gcprinter.drawBarcode("test123", Gcprinter.alignCenter,Gcprinter.barcodeQrCode);
+    Gcprinter.drawQrCode("test123", Gcprinter.alignCenter);
     Gcprinter.drawCustom("test123",Gcprinter.fontDefault,Gcprinter.alignCenter);
     Gcprinter.printText(true);
 ```
