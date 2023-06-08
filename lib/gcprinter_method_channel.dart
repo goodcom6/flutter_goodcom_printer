@@ -57,6 +57,16 @@ class MethodChannelGcprinter extends GcprinterPlatform {
   }
 
   @override
+  void drawHBarcode(String str, int align, int type, int height) {
+    var map = HashMap<String, Object>();
+    map["data"] = str;
+    map["align"] = align;
+    map["type"] = type;
+    map["height"] = height;
+    methodChannel.invokeMethod("drawHBarcode", map);
+  }
+
+  @override
   void printText(bool isAutoFeed) {
     var map = HashMap<String, Object>();
     map["auto_feed"] = isAutoFeed;

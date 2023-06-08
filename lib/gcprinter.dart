@@ -42,6 +42,21 @@ class Gcprinter {
   /// and decide whether to automatically feed the paper.
   /// If you want to print the text after printing the logo,
   /// the paper will not be automatically fed.
+  /// When using this API, you need to apply for read file permission,
+  /// Need to add the
+  /// <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  /// to AndroidManifest.xml
+  /// And add code similar to the following to the Flutter code:
+  ///import 'package:permission_handler/permission_handler.dart';
+  //
+  // void main() async {
+  //   final status = await Permission.storage.request();
+  //   if (status.isGranted) {
+  //     // Permission granted
+  //   } else {
+  //     // Permission denied
+  //   }
+  // }
   static void printImageFile(String filePath, int align, bool isAutoFeed) {
     GcprinterPlatform.instance.printImageFile(filePath, align, isAutoFeed);
   }
@@ -108,8 +123,25 @@ class Gcprinter {
 
   /// Print barcodes, including qrcode, you can specify the alignment position
   /// and barcode type of the barcode
-  static void drawBarcode(String str, int align, int type) {
-    GcprinterPlatform.instance.drawBarcode(str, align, type);
+  /// The unit of height is pixels
+  /// No width parameter is required, the width is determined by the specific barcode
+  static void drawBarcode(String str, int align, int type, [int? height]) {
+    if (height != null) {
+      GcprinterPlatform.instance.drawHBarcode(str, align, type, height);
+    } else {
+      GcprinterPlatform.instance.drawBarcode(str, align, type);
+    }
+  }
+
+  /// Print qrcode, you can specify the alignment position and height of qrcode
+  /// The unit of height is pixels
+  static void drawQrCode(String str, int align, [int? height]) {
+    if (height != null) {
+      GcprinterPlatform.instance
+          .drawHBarcode(str, align, barcodeQrCode, height);
+    } else {
+      GcprinterPlatform.instance.drawBarcode(str, align, barcodeQrCode);
+    }
   }
 
   /// Start printing. Except for image printing, other printing interfaces,

@@ -46,6 +46,10 @@ abstract class GcprinterPlatform extends PlatformInterface {
     throw UnimplementedError('drawBarcode() has not been implemented');
   }
 
+  void drawHBarcode(String str, int align, int type, int height) {
+    throw UnimplementedError('drawHBarcode() has not been implemented');
+  }
+
   void printText(bool isAutoFeed) {
     throw UnimplementedError('printText() has not been implemented');
   }
