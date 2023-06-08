@@ -59,7 +59,7 @@ class _MyAppState extends State<MyApp> {
     Gcprinter.drawText("1 x", Gcprinter.fontSmallBold, "test", Gcprinter.fontSmallBold, "65.00", Gcprinter.fontSmallBold);
     Gcprinter.drawLeftRight("option1", "60.00", Gcprinter.fontDefault);
     Gcprinter.drawText("option2", Gcprinter.fontDefault, "", Gcprinter.fontDefault, "5.00", Gcprinter.fontDefault);
-    Gcprinter.drawBarcode("test123", Gcprinter.alignCenter,Gcprinter.barcodeQrCode);
+    Gcprinter.drawQrCode("test123", Gcprinter.alignCenter);
     Gcprinter.drawText("",0,"test123",Gcprinter.fontDefault,"",0);
     Gcprinter.drawOneLine();
     Gcprinter.drawCustom("Thanks!", Gcprinter.fontSmall, Gcprinter.alignCenter);
