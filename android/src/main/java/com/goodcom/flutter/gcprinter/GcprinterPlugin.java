@@ -81,6 +81,14 @@ public class GcprinterPlugin implements FlutterPlugin, MethodCallHandler {
         GcPrinterUtils.drawBarcode(str,align!=null?align:0,type!=null?type:0);
       }
       break;
+      case "drawHBarcode":{
+        String str = call.argument("data");
+        Integer align = call.argument("align");
+        Integer type = call.argument("type");
+        Integer height = call.argument("height");
+        GcPrinterUtils.drawBarcode(str,align!=null?align:0,type!=null?type:0,height!=null?height:0);
+      }
+      break;
       case "printText":
       {
         boolean isAutoFeed = Boolean.TRUE.equals(call.argument("auto_feed"));
