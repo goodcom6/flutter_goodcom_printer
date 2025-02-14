@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import androidx.annotation.NonNull;
-import com.goodcom.gcprinter.GcPrinterUtils;
+import com.goodcom.gcprinter.GcPrinterHelper;
 
 import java.io.File;
 
@@ -36,7 +36,7 @@ public class GcprinterPlugin implements FlutterPlugin, MethodCallHandler {
     switch (call.method) {
       case "printJson": {
         String json = call.argument("json");
-        GcPrinterUtils.printJson(mContext,json);
+        GcPrinterHelper.getInstance().printJson(mContext,json);
       }
         break;
       case "printImageFile": {
@@ -47,7 +47,7 @@ public class GcprinterPlugin implements FlutterPlugin, MethodCallHandler {
           File file = new File(uri);
           if (file.exists()) {
             Bitmap bitmap = BitmapFactory.decodeFile(file.getPath());
-            GcPrinterUtils.printBitmap(mContext, bitmap,align!=null?align:0, isAutoFeed);
+            GcPrinterHelper.getInstance().printBitmap(mContext, bitmap,align!=null?align:0, isAutoFeed);
           }
         }
       }
@@ -59,7 +59,7 @@ public class GcprinterPlugin implements FlutterPlugin, MethodCallHandler {
         boolean isAutoFeed = Boolean.TRUE.equals(call.argument("auto_feed"));
         if (bytes != null) {
             Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
-            GcPrinterUtils.printBitmap(mContext, bitmap,align!=null?align:0, isAutoFeed);
+          GcPrinterHelper.getInstance().printBitmap(mContext, bitmap,align!=null?align:0, isAutoFeed);
         }
       }
         break;
@@ -71,14 +71,14 @@ public class GcprinterPlugin implements FlutterPlugin, MethodCallHandler {
         Integer fontMid = call.argument("fontMid");
         String strRight = call.argument("strRight");
         Integer fontRight = call.argument("fontRight");
-        GcPrinterUtils.drawText(strLeft,fontLeft!=null?fontLeft:0,strMid,fontMid!=null?fontMid:0,strRight,fontRight!=null?fontRight:0);
+        GcPrinterHelper.getInstance().drawText(strLeft,fontLeft!=null?fontLeft:0,strMid,fontMid!=null?fontMid:0,strRight,fontRight!=null?fontRight:0);
       }
         break;
       case "drawBarcode": {
         String str = call.argument("data");
         Integer align = call.argument("align");
         Integer type = call.argument("type");
-        GcPrinterUtils.drawBarcode(str,align!=null?align:0,type!=null?type:0);
+        GcPrinterHelper.getInstance().drawBarcode(str,align!=null?align:0,type!=null?type:0);
       }
       break;
       case "drawHBarcode":{
@@ -86,18 +86,18 @@ public class GcprinterPlugin implements FlutterPlugin, MethodCallHandler {
         Integer align = call.argument("align");
         Integer type = call.argument("type");
         Integer height = call.argument("height");
-        GcPrinterUtils.drawBarcode(str,align!=null?align:0,type!=null?type:0,height!=null?height:0);
+        GcPrinterHelper.getInstance().drawBarcode(str,align!=null?align:0,type!=null?type:0,height!=null?height:0);
       }
       break;
       case "printText":
       {
         boolean isAutoFeed = Boolean.TRUE.equals(call.argument("auto_feed"));
-        GcPrinterUtils.printText(mContext,isAutoFeed);
+        GcPrinterHelper.getInstance().printText(mContext,isAutoFeed);
       }
       break;
       case "isDeviceSupport":
       {
-        boolean isSupport=GcPrinterUtils.isDeviceSupport();
+        boolean isSupport=GcPrinterHelper.getInstance().isDeviceSupport();
         result.success(isSupport);
       }
         break;
