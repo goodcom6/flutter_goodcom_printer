@@ -34,5 +34,5 @@ android {
 
 }
 dependencies {
-    implementation files('libs/GCPRN.jar')
+    implementation("cn.goodcom:ezprinter:2.1.6");
 }
