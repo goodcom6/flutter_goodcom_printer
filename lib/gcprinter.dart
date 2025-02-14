@@ -30,24 +30,24 @@ class Gcprinter {
   static const int barcodeCode93 = 8;
   static const int barcodeQrCode = 0x80;
 
-  ///Print the content in json format,
-  ///which will be parsed by the printer according to
-  ///the template and formatted for printing
+  //Print the content in json format,
+  //which will be parsed by the printer according to
+  //the template and formatted for printing
   static void printJson(String json) {
     GcprinterPlatform.instance.printJson(json);
   }
 
-  /// Print the image according to the file path.
-  /// You can set the alignment position of the printed image
-  /// and decide whether to automatically feed the paper.
-  /// If you want to print the text after printing the logo,
-  /// the paper will not be automatically fed.
-  /// When using this API, you need to apply for read file permission,
-  /// Need to add the
-  /// <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-  /// to AndroidManifest.xml
-  /// And add code similar to the following to the Flutter code:
-  ///import 'package:permission_handler/permission_handler.dart';
+  // Print the image according to the file path.
+  // You can set the alignment position of the printed image
+  // and decide whether to automatically feed the paper.
+  // If you want to print the text after printing the logo,
+  // the paper will not be automatically fed.
+  // When using this API, you need to apply for read file permission,
+  // Need to add the
+  // <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  // to AndroidManifest.xml
+  // And add code similar to the following to the Flutter code:
+  //import 'package:permission_handler/permission_handler.dart';
   //
   // void main() async {
   //   final status = await Permission.storage.request();
