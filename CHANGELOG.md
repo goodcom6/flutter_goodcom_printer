@@ -35,3 +35,5 @@ first release
     You can also continue to use the API without height
  2. Add new api:drawQrCode
  3. Modification issue: The barcode type set may not work
+## 1.0.5
+Support EZ series printers, such as GT81EZ, GT90EZ
