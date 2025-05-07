@@ -35,5 +35,5 @@ android {
 
 }
 dependencies {
-    implementation("cn.goodcom:ezprinter:2.1.6");
+    implementation("cn.goodcom:ezprinter:2.+");
 }
