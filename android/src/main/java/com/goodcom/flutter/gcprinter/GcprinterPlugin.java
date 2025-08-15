@@ -101,6 +101,20 @@ public class GcprinterPlugin implements FlutterPlugin, MethodCallHandler {
         result.success(isSupport);
       }
         break;
+      case "openCashBox":
+      {
+          GcPrinterHelper.getInstance().openCashBox(mContext);
+      }
+        break;
+      case "showLcdImage":
+      {
+        byte[] bytes = call.argument("data");
+        if (bytes != null) {
+          Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+          GcPrinterHelper.getInstance().showLcdBitmap(mContext,bitmap);
+        }
+      }
+      break;
       default:
         result.notImplemented();
         break;
