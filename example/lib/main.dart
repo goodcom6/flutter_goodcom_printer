@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
   Future<Uint8List> _getAssetImage(String path) async {
     return await readBytes(path);
   }
-  Future<void> _btnPirnt() async{
+  Future<void> _btnPrint() async{
     Uint8List bytes = await _getAssetImage('assets/images/logo.png');
     Gcprinter.printImage(bytes, Gcprinter.alignCenter, false);
     Gcprinter.drawOneLine(Gcprinter.fontMediumBold);
@@ -76,7 +76,7 @@ class _MyAppState extends State<MyApp> {
           child: Text('Running on: $_platformVersion\n'),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: _btnPirnt,
+          onPressed: _btnPrint,
           tooltip: 'print',
           child: Icon(Icons.print),
         ),
