@@ -35,6 +35,7 @@ import 'package:gcprinter/gcprinter.dart';
   void drawLeftRight(String left,String right,int fontSize);
   void drawImage(String path);
   void drawQrCode(String str, int align, [int? height]);
+  void openCashBox();
 ```
 
 ## Example
