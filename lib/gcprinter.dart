@@ -158,4 +158,13 @@ class Gcprinter {
   static Future<bool> isDeviceSupport() {
     return GcprinterPlatform.instance.isDeviceSupport();
   }
+  ///Used to open the cash box, it will be opened once when called
+  static void openCashBox(){
+    GcprinterPlatform.instance.openCashBox();
+  }
+  ///Show bitmap in customer display LCD, The maximum size is 240 * 320,
+  ///Images smaller than the customer display screen will be displayed in the center
+  static void showLcdImage(Uint8List img){
+    GcprinterPlatform.instance.showLcdImage(img);
+  }
 }

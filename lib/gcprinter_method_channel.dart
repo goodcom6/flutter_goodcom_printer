@@ -78,4 +78,14 @@ class MethodChannelGcprinter extends GcprinterPlatform {
     final bool isOk = await methodChannel.invokeMethod('isDeviceSupport');
     return isOk;
   }
+  @override
+  void openCashBox(){
+    methodChannel.invokeMethod('openCashBox');
+  }
+  @override
+  void showLcdImage(Uint8List img){
+    var map = HashMap<String, Object>();
+    map["data"] = img;
+    methodChannel.invokeMethod("showLcdImage", map);
+  }
 }

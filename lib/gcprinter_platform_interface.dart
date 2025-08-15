@@ -57,4 +57,10 @@ abstract class GcprinterPlatform extends PlatformInterface {
   Future<bool> isDeviceSupport() {
     throw UnimplementedError('isDeviceSupport() has not been implemented');
   }
+  void openCashBox(){
+    throw UnimplementedError('openCashBox() has not been implemented');
+  }
+  void showLcdImage(Uint8List img){
+    throw UnimplementedError('showLcdImage() has not been implemented');
+  }
 }
