@@ -1,10 +1,11 @@
 name: gcprinter
-description: This plugin allows the Flutter app to print tickets on a goodcom pos printer using a few simple apis,it support all the goodcom android pos printer.
-version: 1.0.7
-homepage:
-  https://github.com/goodcom6/flutter_goodcom_printer
+description: This plugin allows the Flutter app to print tickets on a goodcom pos printer using a few simple apis, it supports all the goodcom android pos printers.
+version: 1.0.8
+homepage: https://github.com/goodcom6/flutter_goodcom_printer
+repository: https://github.com/goodcom6/flutter_goodcom_printer
+issue_tracker: https://github.com/goodcom6/flutter_goodcom_printer/issues
 environment:
-  sdk: '>=2.15.1 <3.0.0'
+  sdk: '>=2.15.1 <4.0.0'
   flutter: ">=2.5.0"
 
 dependencies:

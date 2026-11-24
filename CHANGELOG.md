@@ -36,4 +36,10 @@ first release
  2. Add new api:drawQrCode
  3. Modification issue: The barcode type set may not work
 ## 1.0.5
-Support EZ series printers, such as GT81EZ, GT90EZ
+ Support EZ series printers, such as GT81EZ, GT90EZ
+## 1.0.6
+ Change build.gradle to use 'cn. goodcom: ezprinter: 2.+'
+## 1.0.7
+ Add openCashBox and showLcdImage for some device
+## 1.0.8
+ Add setPrintSpeed and setPrintDensity for some device
