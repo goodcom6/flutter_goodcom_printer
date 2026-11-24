@@ -1,19 +1,11 @@
-import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:gcprinter/gcprinter_platform_interface.dart';
+import 'package:gcprinter/gcprinter_method_channel.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('gcprinter');
-
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  setUp(() {
-    channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      return '42';
-    });
+  test('$MethodChannelGcprinter is the default instance', () {
+    expect(GcprinterPlatform.instance, isInstanceOf<MethodChannelGcprinter>());
   });
-
-  tearDown(() {
-    channel.setMockMethodCallHandler(null);
-  });
-
 }
