@@ -115,6 +115,16 @@ public class GcprinterPlugin implements FlutterPlugin, MethodCallHandler {
         }
       }
       break;
+      case "setPrintSpeed": {
+        Integer speed = call.argument("speed");
+        GcPrinterHelper.getInstance().setPrintSpeed(mContext,speed!=null?speed:10);
+      }
+      break;
+      case "setPrintDensity": {
+        Integer density = call.argument("density");
+        GcPrinterHelper.getInstance().setPrintDensity(mContext,density!=null?density:8);
+      }
+      break;
       default:
         result.notImplemented();
         break;
