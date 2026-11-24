@@ -63,4 +63,10 @@ abstract class GcprinterPlatform extends PlatformInterface {
   void showLcdImage(Uint8List img){
     throw UnimplementedError('showLcdImage() has not been implemented');
   }
+  void setPrintSpeed(int speed) {
+    throw UnimplementedError('setPrintSpeed() has not been implemented');
+  }
+  void setPrintDensity(int density) {
+    throw UnimplementedError('setPrintDensity() has not been implemented');
+  }
 }

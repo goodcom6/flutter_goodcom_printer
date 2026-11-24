@@ -88,4 +88,16 @@ class MethodChannelGcprinter extends GcprinterPlatform {
     map["data"] = img;
     methodChannel.invokeMethod("showLcdImage", map);
   }
+  @override
+  void setPrintSpeed(int speed) {
+    var map = HashMap<String, Object>();
+    map["speed"] = speed;
+    methodChannel.invokeMethod("setPrintSpeed", map);
+  }
+  @override
+  void setPrintDensity(int density) {
+    var map = HashMap<String, Object>();
+    map["density"] = density;
+    methodChannel.invokeMethod("setPrintDensity", map);
+  }
 }

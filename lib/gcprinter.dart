@@ -167,4 +167,12 @@ class Gcprinter {
   static void showLcdImage(Uint8List img){
     GcprinterPlatform.instance.showLcdImage(img);
   }
+  ///Set print speed,speed range from 0 to 9; currently supported by only some devices.
+  static void setPrintSpeed( int speed) {
+      GcprinterPlatform.instance.setPrintSpeed(speed);
+  }
+  ///Set print density,density range from 0 to 9; currently supported by only some devices.
+  static void setPrintDensity(int density) {
+      GcprinterPlatform.instance.setPrintDensity(density);
+  }
 }
