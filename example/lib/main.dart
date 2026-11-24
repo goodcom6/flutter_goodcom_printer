@@ -78,7 +78,7 @@ class _MyAppState extends State<MyApp> {
         floatingActionButton: FloatingActionButton(
           onPressed: _btnPrint,
           tooltip: 'print',
-          child: Icon(Icons.print),
+          child: const Icon(Icons.print),
         ),
       ),
     );
