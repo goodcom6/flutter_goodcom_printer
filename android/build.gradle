@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.9.1'
+        classpath 'com.android.tools.build:gradle:7.2.0'
     }
 }
 
@@ -22,9 +22,8 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
-    namespace 'com.goodcom.flutter.gcprinter'
-
-    compileSdkVersion 36
+	namespace 'com.goodcom.flutter.gcprinter'
+    compileSdkVersion 31
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -36,5 +35,5 @@ android {
 
 }
 dependencies {
-    implementation("cn.goodcom:ezprinter:2.+")
+    implementation("cn.goodcom:ezprinter:[2.1.18, 3.0.0)")
 }
